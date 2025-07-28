@@ -30,7 +30,7 @@ RUN sed -i '/en_US.UTF-8/s/^# //g' /etc/locale.gen && locale-gen
 WORKDIR /piston_api
 COPY ["package.json", "package-lock.json", "./"]
 RUN npm install
-COPY ./src ./src
+COPY api/src /app/src
 
 CMD ["/piston_api/src/docker-entrypoint.sh"]
 EXPOSE 2000/tcp
